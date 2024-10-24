@@ -6,7 +6,7 @@ document.getElementById('userForm').addEventListener('submit', (e) => {
 
   
   if (!age || !name) {
-    return alert("Please enter valid details."); 
+    return alert(`Please enter valid details.' to equal`); 
   }
 
   age = Number(age);
