@@ -1,32 +1,34 @@
-let inputAge = document.getElementById('age');
-let inputName = document.getElementById('name');
-let inputBtn = document.getElementById('btn');
+document.getElementById('userForm').addEventListener('submit', (e) => {
+  e.preventDefault(); // Prevent the form from submitting
 
-inputBtn.addEventListener('click', (e) => {
-  e.preventDefault();
+  let age = document.getElementById('age').value.trim();
+  let name = document.getElementById('name').value.trim();
 
-  let age = inputAge.value;
-  let name = inputName.value;
-
+  
   if (!age || !name) {
-    return alert("Please enter valid details.");
+    return alert("Inputs cannot be empty.");
   }
+
 
   age = Number(age);
 
-  let p = new Promise((resolve, reject) => {
+  
+  let agePromise = new Promise((resolve, reject) => {
     setTimeout(() => {
       if (age > 18) {
         resolve(`Welcome, ${name}. You can vote.`);
       } else {
-        reject(`Oh sorry, ${name}. You aren't old enough.`);
+        reject(`Oh sorry ${name}. You aren't old enough.`);
       }
-    }, 4000);
+    }, 4000); 
   });
 
-  p.then((message) => {
-    alert(message);
-  }).catch((error) => {
-    alert(error);
-  });
+ 
+  agePromise
+    .then((message) => {
+      alert(message); 
+    })
+    .catch((error) => {
+      alert(error); 
+	});
 });

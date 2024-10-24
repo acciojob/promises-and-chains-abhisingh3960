@@ -1,24 +1,21 @@
 <!DOCTYPE html>
-
 <html>
   <head>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Promises</title>
   </head>
-
   <body>
-    <!-- write the body here -->
-	  <form>
-		  <label for="age" >age
-			  <input type="number" placeholder="age" id="age">
-		  </label>
+    <form id="userForm">
+      <label for="age">Age:
+        <input type="number" id="age" placeholder="Enter your age" />
+      </label>
+      <br />
+      <label for="name">Name:
+        <input type="text" id="name" placeholder="Enter your name" />
+      </label>
+      <br />
+      <button id="btn" type="submit">Submit</button>
+    </form>
 
-		  <label for="name">name
-			  <input type="text" placeholder="name" id="name">
-		  </label>
-
-		  <button id="btn" type="submit">submit</button>
-	  </form>
-
-    <script type="text/javascript" src="./script.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
