@@ -29,8 +29,4 @@ document.getElementById('userForm').addEventListener('submit', (e) => {
       alert(error); 
 	});
 });
-cy.visit(baseUrl + "/main.html"); 
-cy.get("button#btn").click(); 
-cy.on("window:alert", (str) => { 
-  expect(str).to.equal('Please enter valid details'); 
-});
+
