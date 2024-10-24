@@ -1,18 +1,16 @@
 document.getElementById('userForm').addEventListener('submit', (e) => {
-  e.preventDefault(); // Prevent the form from submitting
+  e.preventDefault(); 
 
   let age = document.getElementById('age').value.trim();
   let name = document.getElementById('name').value.trim();
 
   
   if (!age || !name) {
-    return alert("Inputs cannot be empty.");
+    return alert("Please enter valid details."); 
   }
-
 
   age = Number(age);
 
-  
   let agePromise = new Promise((resolve, reject) => {
     setTimeout(() => {
       if (age > 18) {
@@ -23,12 +21,16 @@ document.getElementById('userForm').addEventListener('submit', (e) => {
     }, 4000); 
   });
 
- 
   agePromise
     .then((message) => {
-      alert(message); 
-    })
+      alert(message);
+		 })
     .catch((error) => {
       alert(error); 
 	});
+});
+cy.visit(baseUrl + "/main.html"); 
+cy.get("button#btn").click(); 
+cy.on("window:alert", (str) => { 
+  expect(str).to.equal('Please enter valid details'); 
 });
