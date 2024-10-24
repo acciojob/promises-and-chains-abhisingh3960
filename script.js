@@ -1,31 +1,33 @@
-//your JS code here. If required.
 let inputAge = document.getElementById('age');
 let inputName = document.getElementById('name');
 let inputBtn = document.getElementById('btn');
-inputBtn.addEventListener('click' , (e)=>{
-	e.preventDefault();
-	let age = inputAge.value;
-	let name = inputName.value;
-	if(age ==="" && name===""){
-		return alert("inputs cannot be empty.");
-	}
 
-	
-	let p = new Promise((res , rej)=>{
-		setTimeout(()=>{
-		if(age>18){
-			res(`Welcome, ${name}. You can vote.`)
-		}
-			else{
-				rej(`Oh sorry  ${name}. You aren't old enough`)
-			}
-	},4000)
-	})
+inputBtn.addEventListener('click', (e) => {
+  e.preventDefault();
 
-	p.then((res)=>{
-		console.log(res);
-	})
-	.catch((err)=>{
-		console.log(err);
-	})
-})
+  let age = inputAge.value;
+  let name = inputName.value;
+
+  if (!age || !name) {
+    return alert("Inputs cannot be empty.");
+  }
+
+  age = Number(age);
+
+
+  let p = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (age > 18) {
+        resolve(`Welcome, ${name}. You can vote.`);
+      } else {
+        reject(`Oh sorry, ${name}. You aren't old enough.`);
+      }
+    }, 4000);
+  });
+
+  p.then((message) => {
+    alert(message);
+  }).catch((error) => {
+    alert(error);
+  });
+});
