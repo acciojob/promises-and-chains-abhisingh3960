@@ -9,11 +9,10 @@ inputBtn.addEventListener('click', (e) => {
   let name = inputName.value;
 
   if (!age || !name) {
-    return alert("Inputs cannot be empty.");
+    return alert("Please enter valid details.");
   }
 
   age = Number(age);
-
 
   let p = new Promise((resolve, reject) => {
     setTimeout(() => {
